@@ -14,10 +14,10 @@ class Player:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_d]:
             if self.x + self.width < screen.get_width():
-                self.x += 4
+                self.x += 6
         elif keys[pygame.K_a]:
             if self.x > 0:
-                self.x -= 4
+                self.x -= 6
     def update(self, screen):
         self.move_player(screen)
         self.rect = pygame.rect.Rect(self.x, self.y, self.width, 10)
