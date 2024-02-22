@@ -6,7 +6,10 @@ class Ball:
         self.vel_y = 4
         self.x = x
         self.y = y
-        self.rect = pygame.rect.Rect(self.x, self.y, 5, 5)
+        self.rect = pygame.rect.Rect(self.x, self.y, 10, 10)
+        self.ball = pygame.image.load("assets/ball.png").convert_alpha()
+        self.ball = pygame.transform.scale(self.ball, (10, 10))
+
 
     def change_dir(self, screen):
         if self.x >= screen.get_width():
@@ -29,5 +32,5 @@ class Ball:
         self.move()
         self.change_dir(screen)
         self.rect = pygame.rect.Rect(self.x, self.y, 5, 5)
-        pygame.draw.circle(screen,(0, 0, 0), (self.x, self.y), 5)
-
+        # pygame.draw.circle(screen,(0, 0, 0), (self.x, self.y), 5)
+        screen.blit(self.ball, (self.x, self.y))

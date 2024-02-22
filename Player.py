@@ -5,6 +5,8 @@ class Player:
         self.y = y
         self.width = width
         self.rect = pygame.rect.Rect(self.x, self.y, width, 10)
+        self.player= pygame.image.load("assets/player.png").convert_alpha()
+        self.player = pygame.transform.scale(self.player, (self.width, 10))
 
     def draw_player(self, screen):
         self.rect = pygame.rect.Rect(self.x, self.y, self.width, 10)
@@ -22,4 +24,4 @@ class Player:
         self.move_player(screen)
         self.rect = pygame.rect.Rect(self.x, self.y, self.width, 10)
 
-        self.draw_player(screen)
+        screen.blit(self.player, (self.x, self.y))

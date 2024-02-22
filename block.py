@@ -18,13 +18,20 @@ class Block:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.solid = pygame.image.load("assets/red_tile.png").convert_alpha()
+        self.solid = pygame.transform.scale(self.solid, (30, 10))
+        self.cracked = pygame.image.load("assets/cracked_red_tile.png").convert_alpha()
+        self.cracked = pygame.transform.scale(self.cracked, (30, 10))
         self.rect = pygame.rect.Rect(self.x, self.y, 30, 10)
+        # self.solid.get_rect()
         self.status = 2
 
     def draw(self, screen):
         if self.status > 0:
-            colors = [(255, 0, 0), (255, 0, 0), (0, 0, 255)]
-            pygame.draw.rect(screen, colors[self.status], self.rect)
+            tiles = [None, self.solid, self.cracked]
+            screen.blit(tiles[self.status], (self.x, self.y))
+
+            # screen.blit(self.solid, (self.x, self.y))
         else:
             self.rect = pygame.rect.Rect(-1000, -1000, 30, 10)
 

@@ -7,7 +7,7 @@ from helpers import *
 pygame.init()
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((600, 600))
-char = Player(600 // 2 - 15, 600 - 25, 40)
+char = Player(600 // 2 - 15, 600 - 25, 60)
 ball = Ball(300, 300)
 block = []
 for x in range(20):
@@ -16,7 +16,7 @@ for x in range(20):
 level = Level(char, ball, block)
 sprite_sheet((100,50), "Paddle_Parts.png",)
 while True:
-    window.fill((255, 255, 255))
+    window.fill((0, 0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
